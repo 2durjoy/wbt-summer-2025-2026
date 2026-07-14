@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 80px;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            border: 1px solid #655d5d;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        input {
+            width: 220px;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #15299e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>User Registration Form</h2>
+    <h3>Please Fill Up the Form</h3>
+
+    <form onsubmit="return validateForm(event)">
+
+        <label>Name:</label><br>
+        <input type="text" id="name" required><br>
+
+        <label>Email:</label><br>
+        <input type="text" id="email" required><br>
+
+        <label>Address:</label><br>
+        <input type="text" id="address" required><br>
+
+        <input type="submit" value="Register">
+
+    </form>
+
+    <script>
+
+        function validateForm(event) {
+
+            let userName = document.getElementById("name").value.trim();
+            let userEmail = document.getElementById("email").value.trim();
+            let userAddress = document.getElementById("address").value.trim();
+
+            if (userName === "") {
+                alert("Please enter your name.");
+                event.preventDefault();
+                return false;
+            }
+
+            if (userEmail === "") {
+                alert("Please enter your email.");
+                event.preventDefault();
+                return false;
+            }
+
+            if (!userEmail.includes("@") || !userEmail.includes(".")) {
+                alert("Please enter a valid email address.");
+                event.preventDefault();
+                return false;
+            }
+
+            if (userAddress === "") {
+                alert("Please enter your address.");
+                event.preventDefault();
+                return false;
+            }
+
+            alert("Form Submitted Successfully!");
+            return true;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
